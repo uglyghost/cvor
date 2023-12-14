@@ -40,6 +40,46 @@ print(loss)
 - `method (str)`: The method for computing CVor loss. Options are 'AO', 'NN', and 'LOO'.
 - `alpha (float)`: The adjustment coefficient. Must be between 0 and 1.
 
+
+## F_value Calculation
+
+CVor now supports calculation of the `F_value`, which is a key component in computing the CVor loss. 
+This feature allows users to inject their own logic into the loss calculation process, offering greater flexibility and adaptability to specific needs.
+
+### Using F_calculator
+
+To use this feature, define a function that takes `loss_input` and `alpha` as parameters and returns the calculated `F_value`. 
+This function can then be passed to `CVor_loss_PyTorch` as the `F_calculator` argument.
+
+#### Example
+
+Here's an example of how to define and use a F_value calculation function:
+
+```python
+import torch
+from CVor import CVor_loss_PyTorch
+
+# F_value calculation function
+def F_calculator(loss_input, alpha):
+    mean_value = loss_input.mean()
+    F_value = alpha * mean_value / loss_input.sum()
+    return F_value
+
+# Sample loss tensor
+loss_input = torch.tensor([1.0, 2.0, 3.0], device='cuda')
+
+# Compute CVor loss using F_value calculator
+loss = CVor_loss_PyTorch(loss_input, F_calculator=F_calculator)
+print(loss)
+```
+
+In this example, `F_calculator` computes `F_value` based on the mean of the input tensor and the `alpha` value. You can define the logic of `F_value` calculation as per your requirements.
+
+### Note
+
+When using `F_calculator`, the `method` parameter in `CVor_loss_PyTorch` is ignored, and the provided function is used instead for the `F_value` calculation.
+
+
 ## Requirements
 
 - Python 3.8+
