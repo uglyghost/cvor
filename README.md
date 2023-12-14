@@ -24,13 +24,13 @@ Here's a quick example of how to use CVor:
 
 ```python
 import torch
-from cvor import compute_cvor_loss
+from CVor import CVor_loss_PyTorch
 
 # Sample loss tensor
 loss_input = torch.tensor([1.0, 2.0, 3.0], device='cuda')
 
 # Compute CVor loss
-loss = compute_cvor_loss(loss_input, method='NN', alpha=0.1)
+loss = CVor_loss_PyTorch(loss_input, method='NN', alpha=0.1)
 print(loss)
 ```
 
