@@ -1,12 +1,14 @@
 # CVor
 
-CVor is a Python package designed for advanced loss computation in neural networks, particularly with PyTorch. It offers a unique approach to calculating loss using three different methods: AO, NN, and LOO. This flexibility allows for a more customized and efficient optimization process in machine learning models.
+CVor is a Python package designed for advanced loss computation in neural networks, particularly with PyTorch. 
+It offers a unique approach to calculating loss using three different methods: AO, NN, and LOO. 
+CVor provides low-variance, unbiased gradient estimation based on control variates.
+It uniquely focuses on transforming the gradient mapping process and demonstrating superior performance in various machine learning benchmarks, including variational autoencoder training and reinforcement learning tasks.
 
 ## Features
 
-- **Multiple Loss Computation Methods**: Supports 'AO' (Average Optimization), 'NN' (Neural Network based), and 'LOO' (Leave-One-Out) methods.
-- **Flexible Alpha Parameter**: Allows setting the alpha parameter within the range [0, 1] for loss computation adjustment.
-- **CUDA Support**: Automatically detects and utilizes CUDA if available, for enhanced performance.
+- **Multiple Loss Computation Methods**: 'AO' (Average Optimization), 'NN' (Neural Network based), and 'LOO' (Leave-One-Out) methods.
+- **Flexible Alpha Parameter**: Allows setting the alpha parameter within the range [0, 1] for CVor loss adjustment.
 
 ## Installation
 
@@ -40,7 +42,7 @@ print(loss)
 
 ## Requirements
 
-- Python 3.8
+- Python 3.8+
 - PyTorch
 
 ## Contributing
