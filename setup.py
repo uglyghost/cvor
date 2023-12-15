@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="CVor",
-    version="0.0.5",
+    version="0.0.7",
     author="chenxingyan94",
     author_email="xychen@swufe.edu.cn",
     description="A simple implementation of control variates operator (CVor)",
