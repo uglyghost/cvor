@@ -32,7 +32,7 @@ loss_input = torch.tensor([1.0, 2.0, 3.0], device='cuda')
 # Sample F_value tensor, assuming the length is the same as loss_input
 F_value = torch.tensor([0.5, 1.5, 2.5], device='cuda')
 
-# Compute CVor loss using 'NN' method and an alpha value of 0.1
+# Compute CVor loss using 'AO' method and an alpha value of 0.1
 loss = CVor_loss_PyTorch(loss_input, F_value, method='AO', alpha=0.1)
 print(loss)
 ```
